@@ -15,8 +15,13 @@ In addition, this library attempts to be:
 * Naïve. Should be unaware of other libraries implementation
 * Explicit and safe. No implicit updating should be done on read, and GLIFs converted to other versions should be initialized as copies so that they must explicitly overwrite the original when saved
 * Maintainable. Implementations for additional versions should be easily added
-* Tested. Conform to a test suite which corresponds to the GLIF spec
+* Tested. Conform to a test suite with 100% coverage of the GLIF spec
+* Correct. Correspond directly to each version of GLIF spec
 * Documented.
+
+Maintainability and correctness are the primary priorities of the project. This library should be useful for creating a series of tests that can be run against other GLIF libraries to check correctness.
+
+At this point, speed is a secondary concern to those listed above.
 
 Example
 =======
