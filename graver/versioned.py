@@ -7,12 +7,7 @@ class version(object):
         self.version = version
 
     def __call__(self, fn):
-        if type(fn) is property:
-            return fn
-        else:
-            def wrapped(*args, **kwargs):
-                return fn(*args, **kwargs)
-            return wrapped
+        return VersionedAttributeDispatcher.wrap(fn).accepting(self.version)
 
 
 class VersionedObject(object):
@@ -23,5 +18,30 @@ class VersionedObject(object):
         super(VersionedObject, self).__init__(*args, **kwargs)
 
 
-class VersionedFunctionDispatcher(object): pass
+class VersionedAttributeDispatcher(object):
 
+    @classmethod
+    def wrap(cls, fn):
+        if type(fn) is cls:
+            return fn
+        else:
+            return cls(fn)
+
+    def __init__(self, fn):
+        self.fn = fn
+        self.versions = set()
+
+    def __get__(self, inst, type=None):
+        version = inst.version
+
+        if self.accepts(version):
+            return self.fn.__get__(inst)
+        else:
+            raise VersionAccessError
+
+    def accepting(self, version):
+        self.versions.add(version)
+        return self
+
+    def accepts(self, version):
+        return version in self.versions
