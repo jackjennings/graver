@@ -1,0 +1,1 @@
+class Format(object): pass

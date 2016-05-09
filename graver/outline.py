@@ -1,0 +1,1 @@
+class Outline(object): pass

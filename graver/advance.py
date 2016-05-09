@@ -1,0 +1,1 @@
+class Advance(object): pass

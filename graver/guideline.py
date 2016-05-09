@@ -1,0 +1,1 @@
+class Guideline(object): pass

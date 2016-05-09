@@ -1,0 +1,1 @@
+class Anchor(object): pass
