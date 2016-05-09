@@ -15,6 +15,10 @@ class VersionedClass(VersionedObject):
     def bar(self):
         return 'bar'
 
+    def baz(self): pass
+    baz.prop = 'baz'
+    baz = version(1)(baz)
+
 
 class TestVersioned(object):
 
@@ -33,3 +37,6 @@ class TestVersioned(object):
 
     def test_version_hasattr_returns_true_with_in_bounds_version(self):
         assert hasattr(VersionedClass(version=1), 'bar') is True
+
+    def test_maintains_access_to_decorated_function_dict(self):
+        assert VersionedClass(version=1).baz.prop is 'baz'
