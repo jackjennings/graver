@@ -13,7 +13,7 @@ class version(object):
 class VersionedObject(object):
 
     def __init__(self, *args, **kwargs):
-        self.version = kwargs.get('version')
+        self.version = int(kwargs.get('version'))
         del kwargs['version']
         super(VersionedObject, self).__init__(*args, **kwargs)
 
