@@ -2,7 +2,7 @@
 <glyph name="period" format="2">
   <advance width="268"/>
   <unicode hex="002E"/>
-  <image fileName="period sketch.png" xScale="0.5" yScale="0.5"/>
+  <image fileName="period sketch.png" xScale="0.5" yScale="0.6"/>
   <guideline y="-12" name="overshoot"/>
   <anchor x="74" y="197" name="top"/>
   <outline>

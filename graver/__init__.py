@@ -1,13 +1,13 @@
 import os
-from xml.etree import ElementTree
 
 from graver.glif import GLIF
+from graver.reader.xml_reader import XMLReader
 
 
 __version__ = "0.0.1"
 
 
 def open(filepath):
-    tree = ElementTree.parse(os.path.abspath(filepath))
-    version = tree.getroot().get('format')
-    return GLIF(version=version)
+    reader = XMLReader.parse(os.path.abspath(filepath))
+    version = reader.attribute('format')
+    return GLIF(version=version, reader=reader)
