@@ -9,7 +9,7 @@ class PlistReader(AbstractReader):
     def parse(cls, source):
         try:
             return cls(plistlib.readPlistFromString(source))
-        except Exception as e:
+        except TypeError as e:
             return cls({})
 
     def __init__(self, node):
