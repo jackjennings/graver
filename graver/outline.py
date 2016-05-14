@@ -9,8 +9,8 @@ class Outline(ProxyReader):
 
     @property
     def components(self):
-        return self.elements('component')
+        return Collection(Component, self.elements('component'))
 
     @property
     def contours(self):
-        return self.elements('contour')
+        return Collection(Contour, self.elements('contour'))
