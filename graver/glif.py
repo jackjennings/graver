@@ -52,7 +52,7 @@ class GLIF(ProxyReader, VersionedObject):
     @version(2)
     @property
     def lib(self):
-        return Lib(self.element('lib'))
+        return Lib(self.attribute('lib'))
 
     @version(2)
     @property
