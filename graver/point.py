@@ -1,17 +1,28 @@
-class Point(object):
+from reader.proxy_reader import ProxyReader
 
-    @property
-    def x(self):
-        pass
+
+class Point(ProxyReader):
 
     @property
     def y(self):
-        pass
+        return int(self.attribute('y'))
+
+    @property
+    def x(self):
+        return int(self.attribute('x'))
 
     @property
     def type(self):
-        pass
+        return self.attribute('type')
 
     @property
     def smooth(self):
-        pass
+        return self.attribute('smooth')
+
+    @property
+    def name(self):
+        return self.attribute('name')
+
+    @property
+    def identifier(self):
+        return self.attribute('identifier')
