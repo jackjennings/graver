@@ -34,35 +34,35 @@ class GLIF(ProxyReader, VersionedObject):
     @version(2)
     @property
     def advance(self):
-        return Advance(reader=self.element('advance'))
+        return Advance(self.element('advance'))
 
     @version(1)
     @version(2)
     @property
     def unicode(self):
-        return Unicode(reader=self.element('unicode'))
+        return Unicode(self.element('unicode'))
 
     @version(1)
     @version(2)
     @property
     def outline(self):
-        return Outline(reader=self.element('outline'))
+        return Outline(self.element('outline'))
 
     @version(1)
     @version(2)
     @property
     def lib(self):
-        return Lib(reader=self.element('lib'))
+        return Lib(self.element('lib'))
 
     @version(2)
     @property
     def note(self):
-        return Note(reader=self.element('note'))
+        return Note(self.element('note'))
 
     @version(2)
     @property
     def image(self):
-        return Image(reader=self.element('image'))
+        return Image(self.element('image'))
 
     @version(2)
     @property

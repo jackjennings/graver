@@ -3,10 +3,8 @@ from graver.reader.null_reader import NullReader
 
 class ProxyReader(object):
 
-    def __init__(self, *args, **kwargs):
-        self.reader = kwargs.get('reader', NullReader())
-        if 'reader' in kwargs:
-            del kwargs['reader']
+    def __init__(self, reader=None, *args, **kwargs):
+        self.reader = reader or NullReader()
 
         try:
             super(ProxyReader, self).__init__(*args, **kwargs)
