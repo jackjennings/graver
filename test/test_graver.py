@@ -20,3 +20,6 @@ class TestGraver(object):
         assert glif.image.file_name == "period sketch.png"
         assert glif.image.x_scale == 0.5
         assert glif.image.y_scale == 0.6
+        assert len(glif.guidelines) is 1
+        assert glif.guidelines[0].y == -12
+        assert glif.guidelines[0].name == "overshoot"
