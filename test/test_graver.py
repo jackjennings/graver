@@ -23,3 +23,7 @@ class TestGraver(object):
         assert len(glif.guidelines) is 1
         assert glif.guidelines[0].y == -12
         assert glif.guidelines[0].name == "overshoot"
+        assert len(glif.anchors) is 1
+        assert glif.anchors[0].x == 74
+        assert glif.anchors[0].y == 197
+        assert glif.anchors[0].name == "top"
