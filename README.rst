@@ -2,7 +2,7 @@
 Graver
 ======
 
-Graver is an experimental implementation of the GLIF spec in Python.
+Graver is an experimental implementation in Python of the GLIF spec (http://unifiedfontobject.org/versions/ufo3/glyphs/glif/).
 
 Goals
 =====
