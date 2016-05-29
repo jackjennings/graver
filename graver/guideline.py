@@ -5,15 +5,15 @@ class Guideline(ProxyReader):
 
     @property
     def y(self):
-        return int(self.attribute('y'))
+        return self.attribute('y', int)
 
     @property
     def x(self):
-        return int(self.attribute('x'))
+        return self.attribute('x', int)
 
     @property
     def angle(self):
-        return int(self.attribute('angle'))
+        return self.attribute('angle', int)
 
     @property
     def name(self):

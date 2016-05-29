@@ -5,8 +5,8 @@ class Advance(ProxyReader):
 
     @property
     def width(self):
-        return int(self.attribute('width'))
+        return self.attribute('width', int)
 
     @property
     def height(self):
-        return int(self.attribute('height'))
+        return self.attribute('height', int)

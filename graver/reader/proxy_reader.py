@@ -11,8 +11,10 @@ class ProxyReader(object):
         except:
             pass
 
-    def attribute(self, name):
-        return self.reader.attribute(name)
+    def attribute(self, name, kind=str):
+        value = self.reader.attribute(name)
+        if value is not None:
+            return kind(value)
 
     def element(self, name):
         return self.reader.element(name)
