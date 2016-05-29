@@ -21,7 +21,7 @@ class TestGLIF(object):
         assert GLIF(version=2).version is 2
 
     def test_glif1_has_advance_property(self):
-        assert GLIF(version=1).advance is not None
+        assert GLIF(version=1).advance is Advance
 
     def test_glif1_has_name_property(self):
         assert type(GLIF(version=1).name) is Name
@@ -42,7 +42,7 @@ class TestGLIF(object):
         assert type(GLIF(version=1).lib) is Lib
 
     def test_glif2_has_advance_property(self):
-        assert GLIF(version=2).advance is not None
+        assert GLIF(version=2).advance is Advance
 
     def test_glif2_has_name_property(self):
         assert type(GLIF(version=2).name) is Name
