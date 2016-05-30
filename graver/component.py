@@ -18,27 +18,27 @@ class Component(ProxyReader):
 
     @property
     def x_offset(self):
-        return float(self.attribute('xOffset'))
+        return self.attribute('xOffset', float)
 
     @property
     def y_offset(self):
-        return float(self.attribute('yOffset'))
+        return self.attribute('yOffset', float)
 
     @property
     def x_scale(self):
-        return float(self.attribute('xScale'))
+        return self.attribute('xScale', float)
 
     @property
     def y_scale(self):
-        return float(self.attribute('yScale'))
+        return self.attribute('yScale', float)
 
     @property
     def xy_scale(self):
-        return float(self.attribute('xyScale'))
+        return self.attribute('xyScale', float)
 
     @property
     def yx_scale(self):
-        return float(self.attribute('yxScale'))
+        return self.attribute('yxScale', float)
 
     @property
     def identifier(self):
