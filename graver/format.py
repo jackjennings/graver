@@ -1,4 +1,1 @@
-class Format(object):
-
-    def __init__(self, *args):
-        pass
+class Format(str): pass
