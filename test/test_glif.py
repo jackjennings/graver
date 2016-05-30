@@ -76,3 +76,9 @@ class TestGLIF(object):
 
     def test_glif_sets_format_to_version(self):
         assert GLIF(version=2).format == 2
+
+    def test_equality_of_glif_objects(self):
+        assert GLIF(version=2) == GLIF(version=2)
+
+    def test_inequality_of_glif_objects(self):
+        assert GLIF(version=2) != GLIF(version=1)
