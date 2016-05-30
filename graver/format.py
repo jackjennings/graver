@@ -1,1 +1,1 @@
-class Format(str): pass
+class Format(int): pass

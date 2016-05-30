@@ -73,3 +73,6 @@ class TestGLIF(object):
 
     def test_glif2_has_anchors_property(self):
         assert type(GLIF(version=2).anchors) is Collection
+
+    def test_glif_sets_format_to_version(self):
+        assert GLIF(version=2).format == 2

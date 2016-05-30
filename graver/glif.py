@@ -29,6 +29,10 @@ from .anchor import Anchor
 @collection('anchors')
 class GLIF(ProxyReader, VersionedObject):
 
+    def __init__(self, *args, **kwargs):
+        super(GLIF, self).__init__(*args, **kwargs)
+        self.format = Format(self.version)
+
     @version(1)
     @version(2)
     @property
@@ -39,7 +43,7 @@ class GLIF(ProxyReader, VersionedObject):
     @version(2)
     @property
     def format(self):
-        return Format(self.attribute('format'))
+        return self.attribute('format', Format)
 
     @version(1)
     @version(2)
