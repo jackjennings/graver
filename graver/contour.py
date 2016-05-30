@@ -1,9 +1,12 @@
+from reader import attribute, collection
 from reader.proxy_reader import ProxyReader
 
 from .collection import Collection
 from .point import Point
 
 
+@attribute('identifier')
+@collection('points')
 class Contour(ProxyReader):
 
     @property

@@ -1,6 +1,7 @@
 from versioned import version
 from versioned import VersionedObject
 
+from reader import attribute, element, collection
 from reader.proxy_reader import ProxyReader
 
 from .collection import Collection
@@ -16,6 +17,16 @@ from .guideline import Guideline
 from .anchor import Anchor
 
 
+@attribute('name')
+@attribute('format')
+@element('advance')
+@element('unicode')
+@element('outline')
+@element('lib')
+@element('note')
+@element('image')
+@collection('guidelines')
+@collection('anchors')
 class GLIF(ProxyReader, VersionedObject):
 
     @version(1)

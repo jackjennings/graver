@@ -1,6 +1,15 @@
+from reader import attribute
 from reader.proxy_reader import ProxyReader
 
 
+@attribute('base')
+@attribute('x_offset')
+@attribute('y_offset')
+@attribute('x_scale')
+@attribute('y_scale')
+@attribute('xy_scale')
+@attribute('yx_scale')
+@attribute('identifer')
 class Component(ProxyReader):
 
     @property

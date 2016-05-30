@@ -1,6 +1,13 @@
+from reader import attribute
 from reader.proxy_reader import ProxyReader
 
 
+@attribute('y')
+@attribute('x')
+@attribute('type')
+@attribute('smooth')
+@attribute('name')
+@attribute('identifier')
 class Point(ProxyReader):
 
     @property

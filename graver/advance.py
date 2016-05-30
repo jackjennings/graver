@@ -1,6 +1,9 @@
+from reader import attribute
 from reader.proxy_reader import ProxyReader
 
 
+@attribute('width')
+@attribute('height')
 class Advance(ProxyReader):
 
     @property
