@@ -33,12 +33,6 @@ class GLIF(ProxyReader, VersionedObject):
         super(GLIF, self).__init__(*args, **kwargs)
         self.format = Format(self.version)
 
-    def __eq__(self, other):
-        return type(other) is self.__class__ and \
-            self.format == other.format
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
 
     @version(1)
     @version(2)
