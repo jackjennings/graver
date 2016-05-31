@@ -6,6 +6,7 @@ class attachment(object):
     def attach(self, collection, cls):
         if not hasattr(cls, collection):
             setattr(cls, collection, [])
+
         getattr(cls, collection).append(self.attr)
 
 

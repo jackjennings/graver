@@ -4,6 +4,8 @@ from versioned import VersionedObject
 from reader import attribute, element, collection
 from reader.proxy_reader import ProxyReader
 
+from writer.xml_writer import XMLWriter
+
 from .collection import Collection
 from .name import Name
 from .format import Format
@@ -33,6 +35,8 @@ class GLIF(ProxyReader, VersionedObject):
         super(GLIF, self).__init__(*args, **kwargs)
         self.format = Format(self.version)
 
+    def write(self, file, writer=XMLWriter):
+        writer(self).write(file)
 
     @version(1)
     @version(2)
