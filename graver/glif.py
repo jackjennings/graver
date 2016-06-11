@@ -38,38 +38,32 @@ class GLIF(ProxyReader, VersionedObject):
     def write(self, file, writer=XMLWriter):
         writer(self).write(file)
 
-    @version(1)
-    @version(2)
+    @version(1, 2)
     @property
     def name(self):
         return Name(self.attribute('name'))
 
-    @version(1)
-    @version(2)
+    @version(1, 2)
     @property
     def format(self):
         return self.attribute('format', Format)
 
-    @version(1)
-    @version(2)
+    @version(1, 2)
     @property
     def advance(self):
         return Advance(self.element('advance'))
 
-    @version(1)
-    @version(2)
+    @version(1, 2)
     @property
     def unicode(self):
         return Unicode(self.element('unicode'))
 
-    @version(1)
-    @version(2)
+    @version(1, 2)
     @property
     def outline(self):
         return Outline(self.element('outline'))
 
-    @version(1)
-    @version(2)
+    @version(1, 2)
     @property
     def lib(self):
         return Lib(self.attribute('lib'))

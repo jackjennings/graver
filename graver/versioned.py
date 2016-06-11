@@ -3,11 +3,14 @@ class VersionAccessError(Exception): pass
 
 class version(object):
 
-    def __init__(self, version):
-        self.version = version
+    def __init__(self, *versions):
+        self.versions = versions
 
     def __call__(self, fn):
-        return VersionedAttributeDispatcher.wrap(fn).accepting(self.version)
+        for version in self.versions:
+            fn = VersionedAttributeDispatcher.wrap(fn).accepting(version)
+
+        return fn
 
 
 class VersionedObject(object):

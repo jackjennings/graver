@@ -5,8 +5,7 @@ from graver.versioned import version, VersionedObject, VersionAccessError
 
 class VersionedClass(VersionedObject):
 
-    @version(1)
-    @version(2)
+    @version(1, 2)
     def foo(self):
         return 'foo'
 
