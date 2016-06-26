@@ -1,3 +1,5 @@
+from represents import represents
+
 from versioned import version
 from versioned import VersionedObject
 
@@ -33,57 +35,57 @@ class GLIF(ProxyReader, VersionedObject):
 
     def __init__(self, *args, **kwargs):
         super(GLIF, self).__init__(*args, **kwargs)
-        self.format = Format(self.version)
+        self.format = self.version
 
     def write(self, file, writer=XMLWriter):
         writer(self).write(file)
 
     @version(1, 2)
-    @property
+    @represents(Name)
     def name(self):
-        return Name(self.attribute('name'))
+        return self.attribute('name')
 
     @version(1, 2)
-    @property
+    @represents(Format)
     def format(self):
-        return self.attribute('format', Format)
+        return self.attribute('format')
 
     @version(1, 2)
-    @property
+    @represents(Advance)
     def advance(self):
-        return Advance(self.element('advance'))
+        return self.element('advance')
 
     @version(1, 2)
-    @property
+    @represents(Unicode)
     def unicode(self):
-        return Unicode(self.element('unicode'))
+        return self.element('unicode')
 
     @version(1, 2)
-    @property
+    @represents(Outline)
     def outline(self):
-        return Outline(self.element('outline'))
+        return self.element('outline')
 
     @version(1, 2)
-    @property
+    @represents(Lib)
     def lib(self):
-        return Lib(self.attribute('lib'))
+        return self.attribute('lib')
 
     @version(2)
-    @property
+    @represents(Note)
     def note(self):
-        return Note(self.element('note'))
+        return self.element('note')
 
     @version(2)
-    @property
+    @represents(Image)
     def image(self):
-        return Image(self.element('image'))
+        return self.element('image')
 
     @version(2)
-    @property
+    @represents(Collection, Guideline)
     def guidelines(self):
-        return Collection(Guideline, self.elements('guideline'))
+        return self.elements('guideline')
 
     @version(2)
-    @property
+    @represents(Collection, Anchor)
     def anchors(self):
-        return Collection(Anchor, self.elements('anchor'))
+        return self.elements('anchor')

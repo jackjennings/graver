@@ -42,6 +42,9 @@ class VersionedAttributeDispatcher(object):
         else:
             raise VersionAccessError
 
+    def __set__(self, inst, value):
+        return self.fn.__set__(inst, value)
+
     def accepting(self, version):
         self.versions.add(version)
         return self
