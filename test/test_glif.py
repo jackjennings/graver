@@ -82,3 +82,14 @@ class TestGLIF(object):
 
     def test_inequality_of_glif_objects(self):
         assert GLIF(version=2) != GLIF(version=1)
+
+    def test_converts_version(self):
+        glif1 = GLIF(version=2)
+        glif2 = glif1.as_version(2)
+        assert glif2.version == 2
+        assert glif2.format == 2
+
+    def test_should_be_a_clone_after_version_conversion(self):
+        glif1 = GLIF(version=2)
+        glif2 = glif1.as_version(2)
+        assert glif1 is not glif2

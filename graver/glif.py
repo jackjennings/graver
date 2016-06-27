@@ -1,3 +1,5 @@
+import copy
+
 from represents import represents
 
 from versioned import version
@@ -39,6 +41,11 @@ class GLIF(ProxyReader, VersionedObject):
 
     def write(self, file, writer=XMLWriter):
         writer(self).write(file)
+
+    def as_version(self, number):
+        clone = copy.deepcopy(self)
+        clone.format = clone.version = number
+        return clone
 
     @version(1, 2)
     @represents(Name)
